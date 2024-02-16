@@ -23,4 +23,18 @@ public class Main {
 
         transformAndPrint(start, end);
     }
+
+    public static int getMinChanges(String start, String end) {
+        if (start.length() != end.length()) {
+            throw new IllegalArgumentException("Strings must be of equal length");
+        }
+
+        int changes = 0;
+        for (int i = 0; i < start.length(); i++) {
+            if (start.charAt(i) != end.charAt(i)) {
+                changes++;
+            }
+        }
+        return changes;
+    }
 }
