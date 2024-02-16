@@ -37,4 +37,19 @@ public class Main {
         }
         return changes;
     }
+
+    public static void transformAndPrint(String start, String end) {
+        if (start.length() != end.length()) {
+            throw new IllegalArgumentException("Strings must be of equal length");
+        }
+
+        System.out.println("Transforming steps:");
+        String current = start;
+        for (int i = 0; i < start.length(); i++) {
+            if (start.charAt(i) != end.charAt(i)) {
+                current = current.substring(0, i) + end.charAt(i) + current.substring(i + 1);
+                System.out.println("Letter changed " + (i + 1) + ": " + current);
+            }
+        }
+    }
 }
